@@ -1,3 +1,12 @@
+## [0.0.7](https://github.com/varlet/webfont/compare/v0.0.6...v0.0.7) (2024-05-22)
+
+
+### Performance Improvements
+
+* remove svg extname check ([f1fb27e](https://github.com/varlet/webfont/commit/f1fb27e8701699a17ad985f6aaee0072204a7314))
+
+
+
 ## [0.0.6](https://github.com/varlet/webfont/compare/v0.0.5...v0.0.6) (2024-05-22)
 
 
