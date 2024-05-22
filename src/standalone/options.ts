@@ -1,12 +1,12 @@
 // @ts-nocheck
-import type { InitialOptions } from "../types/InitialOptions";
-import { WebfontOptions } from "../types/WebfontOptions";
+import type { InitialOptions } from '../types/InitialOptions'
+import { WebfontOptions } from '../types/WebfontOptions'
 
-type OptionsGetter = (initialOptions?: InitialOptions) => WebfontOptions;
+type OptionsGetter = (initialOptions?: InitialOptions) => WebfontOptions
 
 export const getOptions: OptionsGetter = (initialOptions) => {
   if (!initialOptions || !initialOptions.files) {
-    throw new Error("You must pass webfont a `files` glob");
+    throw new Error('You must pass webfont a `files` glob')
   }
 
   return {
@@ -15,10 +15,10 @@ export const getOptions: OptionsGetter = (initialOptions) => {
     fixedWidth: false,
     fontHeight: null,
     fontId: null,
-    fontName: "webfont",
-    fontStyle: "",
-    fontWeight: "",
-    formats: ["svg", "ttf", "eot", "woff", "woff2"],
+    fontName: 'webfont',
+    fontStyle: '',
+    fontWeight: '',
+    formats: ['svg', 'ttf', 'eot', 'woff', 'woff2'],
     formatsOptions: {
       ttf: {
         copyright: null,
@@ -45,8 +45,8 @@ export const getOptions: OptionsGetter = (initialOptions) => {
     templateCacheString: null,
     templateClassName: null,
     templateFontName: null,
-    templateFontPath: "./",
+    templateFontPath: './',
     verbose: false,
     ...initialOptions,
-  };
-};
+  }
+}
