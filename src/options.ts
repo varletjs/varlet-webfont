@@ -1,6 +1,4 @@
-// @ts-nocheck
-import type { InitialOptions } from '../types/InitialOptions'
-import { WebfontOptions } from '../types/WebfontOptions'
+import { InitialOptions, WebfontOptions } from './types'
 
 type OptionsGetter = (initialOptions?: InitialOptions) => WebfontOptions
 
@@ -18,7 +16,7 @@ export const getOptions: OptionsGetter = (initialOptions) => {
     fontName: 'webfont',
     fontStyle: '',
     fontWeight: '',
-    formats: ['svg', 'ttf', 'eot', 'woff', 'woff2'],
+    formats: ['svg', 'ttf'],
     formatsOptions: {
       ttf: {
         copyright: null,
@@ -26,13 +24,8 @@ export const getOptions: OptionsGetter = (initialOptions) => {
         version: null,
       },
     },
-    glyphTransformFn: null,
+    glyphTransformFn: undefined,
     ligatures: true,
-
-    /*
-     * Maybe allow setup from CLI
-     * This is usually less than file read maximums while staying performance
-     */
     maxConcurrency: 100,
     metadata: null,
     metadataProvider: null,
@@ -41,12 +34,6 @@ export const getOptions: OptionsGetter = (initialOptions) => {
     round: 10e12,
     sort: true,
     startUnicode: 0xea01,
-    template: null,
-    templateCacheString: null,
-    templateClassName: null,
-    templateFontName: null,
-    templateFontPath: './',
-    verbose: false,
     ...initialOptions,
   }
 }

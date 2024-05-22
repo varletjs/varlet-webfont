@@ -1,5 +1,5 @@
 // @ts-nocheck
-import type { GlyphData, WebfontOptions } from '../types'
+import type { GlyphData, WebfontOptions } from './types'
 import { createReadStream } from 'fs'
 import fileSorter from 'svgicons2svgfont/src/filesorter.js'
 import getMetadataService from 'svgicons2svgfont/src/metadata.js'
@@ -28,14 +28,12 @@ export const getGlyphsData: GlyphsDataGetter = (files, options) => {
             const glyph = createReadStream(srcPath)
             let glyphContents = ''
 
-            // eslint-disable-next-line no-promise-executor-return
             return glyph
               .on('error', (glyphError) => reject(glyphError))
               .on('data', (data) => {
                 glyphContents += data.toString()
               })
               .on('end', () => {
-                // Maybe bug in xml2js
                 if (glyphContents.length === 0) {
                   return reject(new Error(`Empty file ${srcPath}`))
                 }
