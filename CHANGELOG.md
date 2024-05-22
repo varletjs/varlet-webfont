@@ -1,4 +1,8 @@
-## 0.0.1 (2024-05-22)
+## [0.0.2](https://github.com/varlet/webfont/compare/v0.0.1...v0.0.2) (2024-05-22)
+
+
+
+## [0.0.1](https://github.com/varlet/webfont/compare/4acb083c5e56a445dadba8b2c675a455eac1ac7b...v0.0.1) (2024-05-22)
 
 
 ### Features
