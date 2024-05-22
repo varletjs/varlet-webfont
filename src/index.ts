@@ -5,7 +5,6 @@ import { Readable } from 'stream'
 import { isFunction, normalizeToArray } from '@varlet/shared'
 import SVGIcons2SVGFontStream from 'svgicons2svgfont'
 import globby from 'globby'
-import path from 'path'
 import svg2ttf from 'svg2ttf'
 
 const toSvg = (glyphsData: any, options: any) => {
