@@ -1,3 +1,12 @@
+## [0.0.8](https://github.com/varlet/webfont/compare/v0.0.7...v0.0.8) (2024-05-22)
+
+
+### Performance Improvements
+
+* to async ([2257b5d](https://github.com/varlet/webfont/commit/2257b5d6f6bff41f4cb1f0096ec5e4d0aa5192d5))
+
+
+
 ## [0.0.7](https://github.com/varlet/webfont/compare/v0.0.6...v0.0.7) (2024-05-22)
 
 
