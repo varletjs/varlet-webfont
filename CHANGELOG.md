@@ -1,3 +1,12 @@
+## [0.0.6](https://github.com/varlet/webfont/compare/v0.0.5...v0.0.6) (2024-05-22)
+
+
+### Bug Fixes
+
+* options.files parsed error ([73d1d6e](https://github.com/varlet/webfont/commit/73d1d6e1cee39f01c497101565fa5e87048de881))
+
+
+
 ## [0.0.5](https://github.com/varlet/webfont/compare/v0.0.4...v0.0.5) (2024-05-22)
 
 
