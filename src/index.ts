@@ -2,6 +2,7 @@ import { GlyphData, InitialOptions, Result } from './types'
 import { getGlyphsData } from './glyphsData.js'
 import { getOptions } from './options.js'
 import { Readable } from 'stream'
+import { isFunction, normalizeToArray } from '@varlet/shared'
 import SVGIcons2SVGFontStream from 'svgicons2svgfont'
 import globby from 'globby'
 import path from 'path'
@@ -50,7 +51,7 @@ type Webfont = (initialOptions?: InitialOptions) => Promise<Result>
 
 export const webfont: Webfont = async (initialOptions) => {
   const options = getOptions(initialOptions)
-  const foundFiles = await globby([...(options.files ?? [])])
+  const foundFiles = await globby(normalizeToArray(options.files))
   const filteredFiles = foundFiles.filter((foundFile) => path.extname(foundFile) === '.svg')
 
   if (filteredFiles.length === 0) {
@@ -59,15 +60,15 @@ export const webfont: Webfont = async (initialOptions) => {
 
   let glyphsData = (await getGlyphsData(filteredFiles, options)) as GlyphData[]
 
-  if (options.glyphTransformFn && typeof options.glyphTransformFn === 'function') {
+  if (isFunction(options.glyphTransformFn)) {
     const transformedGlyphs = glyphsData.map(async (glyphData: GlyphData) => {
       const metadata = await options.glyphTransformFn!(glyphData.metadata!)
-
       return {
         ...glyphData,
         metadata,
       }
     })
+
     glyphsData = await Promise.all(transformedGlyphs)
   }
 

@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@varlet/shared':
+        specifier: ^3.2.10
+        version: 3.2.10
       globby:
         specifier: ^11.0.0
         version: 11.1.0
@@ -335,6 +338,9 @@ packages:
     resolution: {integrity: sha512-j0TR0BEjpI6ExTGJclNzYsQ/+QO/yd5obwsWdMuE2qQxid1dI15PZt7ZIWaP3Xhe5AAVAs7mYUD29v7AemMBLA==}
     engines: {node: '>=16.0.0', pnpm: '>=8.0'}
     hasBin: true
+
+  '@varlet/shared@3.2.10':
+    resolution: {integrity: sha512-RBYOTRSNUtde34X+rk35Ujr7XDpnP74ci+brg4DIvLgHdgu47vPHgaHfFmg7WEIBRnB/Ppc44b5lVNNjKX8cwA==}
 
   '@xmldom/xmldom@0.7.13':
     resolution: {integrity: sha512-lm2GW5PkosIzccsaZIz7tp8cPADSIlIHWDFTR1N0SzfinhhYgeIQjFMz4rYzanCScr3DqQLeomUDArp6MWKm+g==}
@@ -1573,6 +1579,8 @@ snapshots:
       nanospinner: 1.1.0
       picocolors: 1.0.1
       semver: 7.6.2
+
+  '@varlet/shared@3.2.10': {}
 
   '@xmldom/xmldom@0.7.13': {}
 
