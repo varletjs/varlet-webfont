@@ -1,9 +1,8 @@
 // @ts-nocheck
 import type { GlyphData, WebfontOptions } from './types'
-import { createReadStream } from 'fs'
+import fse from 'fs-extra'
 import fileSorter from 'svgicons2svgfont/src/filesorter.js'
 import getMetadataService from 'svgicons2svgfont/src/metadata.js'
-import pLimit from 'p-limit'
 import xml2js from 'xml2js'
 
 // eslint-disable-next-line no-unused-vars
@@ -18,41 +17,29 @@ export const getGlyphsData: GlyphsDataGetter = (files, options) => {
     })
 
   const xmlParser = new xml2js.Parser()
-  const throttle = pLimit(options.maxConcurrency)
 
   return Promise.all(
-    files.map((srcPath: GlyphData['srcPath']) =>
-      throttle(
-        () =>
-          new Promise((resolve, reject) => {
-            const glyph = createReadStream(srcPath)
-            let glyphContents = ''
+    files.map(
+      (srcPath: GlyphData['srcPath']) =>
+        new Promise((resolve, reject) => {
+          const glyphContents = fse.readFileSync(srcPath, 'utf-8')
+          if (glyphContents.length === 0) {
+            reject(new Error(`Empty file ${srcPath}`))
+          }
 
-            return glyph
-              .on('error', (glyphError) => reject(glyphError))
-              .on('data', (data) => {
-                glyphContents += data.toString()
-              })
-              .on('end', () => {
-                if (glyphContents.length === 0) {
-                  return reject(new Error(`Empty file ${srcPath}`))
-                }
+          xmlParser.parseString(glyphContents, (error) => {
+            if (error) {
+              reject(error)
+            }
 
-                return xmlParser.parseString(glyphContents, (error) => {
-                  if (error) {
-                    return reject(error)
-                  }
+            const glyphData: GlyphData = {
+              contents: glyphContents,
+              srcPath,
+            }
 
-                  const glyphData: GlyphData = {
-                    contents: glyphContents,
-                    srcPath,
-                  }
-
-                  return resolve(glyphData)
-                })
-              })
+            resolve(glyphData)
           })
-      )
+        })
     )
   ).then((glyphsData) => {
     let sortedGlyphsData = glyphsData

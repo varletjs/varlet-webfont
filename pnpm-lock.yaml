@@ -11,6 +11,9 @@ importers:
       '@varlet/shared':
         specifier: ^3.2.10
         version: 3.2.10
+      fs-extra:
+        specifier: ^11.2.0
+        version: 11.2.0
       globby:
         specifier: ^11.0.0
         version: 11.1.0
@@ -27,6 +30,9 @@ importers:
         specifier: ^0.4.23
         version: 0.4.23
     devDependencies:
+      '@types/fs-extra':
+        specifier: 11.0.4
+        version: 11.0.4
       '@types/node':
         specifier: 15.14.9
         version: 15.14.9
@@ -327,6 +333,12 @@ packages:
 
   '@types/estree@1.0.5':
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
+
+  '@types/fs-extra@11.0.4':
+    resolution: {integrity: sha512-yTbItCNreRooED33qjunPthRcSjERP1r4MqCZc7wv0u2sUkzTFp45tgUfS5+r7FrZPdmCCNflLhVSP/o+SemsQ==}
+
+  '@types/jsonfile@6.1.4':
+    resolution: {integrity: sha512-D5qGUYwjvnNNextdU59/+fI+spnwtTFmyQP0h+PfIOSkNfpU6AOICUOkm4i0OnSk+NyjdPJrxCDro0sJsWlRpQ==}
 
   '@types/node@15.14.9':
     resolution: {integrity: sha512-qjd88DrCxupx/kJD5yQgZdcYKZKSIGBVDIBE1/LTGcNm3d2Np/jxojkdePDdfnBHJc5W7vSMpbJ1aB7p/Py69A==}
@@ -1563,6 +1575,15 @@ snapshots:
     optional: true
 
   '@types/estree@1.0.5': {}
+
+  '@types/fs-extra@11.0.4':
+    dependencies:
+      '@types/jsonfile': 6.1.4
+      '@types/node': 15.14.9
+
+  '@types/jsonfile@6.1.4':
+    dependencies:
+      '@types/node': 15.14.9
 
   '@types/node@15.14.9': {}
 
