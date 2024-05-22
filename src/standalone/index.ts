@@ -9,9 +9,6 @@ import { getOptions } from "./options";
 import globby from "globby";
 import path from "path";
 import svg2ttf from "svg2ttf";
-import ttf2eot from "ttf2eot";
-import ttf2woff from "ttf2woff";
-import wawoff2 from "wawoff2";
 
 const toSvg = (glyphsData, options) => {
   let result = "";
@@ -66,13 +63,6 @@ const toSvg = (glyphsData, options) => {
 
 const toTtf = (buffer, options) => Buffer.from(svg2ttf(buffer, options).buffer);
 
-const toEot = (buffer) => Buffer.from(ttf2eot(buffer).buffer);
-
-const toWoff = (buffer, options) =>
-  Buffer.from(ttf2woff(buffer, options).buffer);
-
-const toWoff2 = (buffer) => wawoff2.compress(buffer);
-
 // eslint-disable-next-line no-unused-vars
 type Webfont = (initialOptions?: InitialOptions) => Promise<Result>;
 
@@ -120,18 +110,6 @@ export const webfont: Webfont = async (initialOptions) => {
     svg,
     ttf,
   };
-
-  if (options.formats.includes("eot")) {
-    result.eot = toEot(ttf);
-  }
-
-  if (options.formats.includes("woff")) {
-    result.woff = toWoff(ttf, { metadata: options.metadata });
-  }
-
-  if (options.formats.includes("woff2")) {
-    result.woff2 = await toWoff2(ttf);
-  }
 
   if (!options.formats.includes("svg")) {
     delete result.svg;
