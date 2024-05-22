@@ -1,6 +1,6 @@
 {
   "name": "@varlet/webfont",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Generator of fonts from svg icons, svg icons to svg font, svg font to ttf, ttf to eot, ttf to woff, ttf to woff2",
   "type": "module",
   "files": [
