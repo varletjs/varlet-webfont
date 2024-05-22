@@ -1,3 +1,12 @@
+## [0.0.3](https://github.com/varlet/webfont/compare/v0.0.2...v0.0.3) (2024-05-22)
+
+
+### Bug Fixes
+
+* pad .js extname ([8e899fe](https://github.com/varlet/webfont/commit/8e899fe07051aab6ef4eae5a0f51f415f94f3bfe))
+
+
+
 ## [0.0.2](https://github.com/varlet/webfont/compare/v0.0.1...v0.0.2) (2024-05-22)
 
 
