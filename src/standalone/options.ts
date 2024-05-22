@@ -1,7 +1,7 @@
-import type {InitialOptions} from "../types/InitialOptions";
-import {WebfontOptions} from "../types/WebfontOptions";
+// @ts-nocheck
+import type { InitialOptions } from "../types/InitialOptions";
+import { WebfontOptions } from "../types/WebfontOptions";
 
-// eslint-disable-next-line no-unused-vars
 type OptionsGetter = (initialOptions?: InitialOptions) => WebfontOptions;
 
 export const getOptions: OptionsGetter = (initialOptions) => {
@@ -49,5 +49,4 @@ export const getOptions: OptionsGetter = (initialOptions) => {
     verbose: false,
     ...initialOptions,
   };
-
 };

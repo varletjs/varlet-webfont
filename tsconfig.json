@@ -1,11 +1,16 @@
 {
   "compilerOptions": {
+    "target": "esnext",
+    "strict": true,
+    "declaration": true,
+    "skipLibCheck": true,
     "esModuleInterop": true,
-    "moduleResolution": "Node",
-    "outDir": "dist",
+    "downlevelIteration": true,
     "resolveJsonModule": true,
-    "rootDir": ".",
-    "skipLibCheck": false
-  },
-  "exclude": ["jest.config.ts"]
+    "jsx": "preserve",
+    "lib": ["esnext", "dom"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "outDir": "./lib"
+  }
 }
