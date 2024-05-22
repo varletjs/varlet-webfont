@@ -11,15 +11,6 @@ const toSvg = (glyphsData: any, options: any) => {
   let result = ''
 
   return new Promise((resolve, reject) => {
-    let log = () => {
-      Function.prototype()
-    }
-
-    if (options.verbose) {
-      // eslint-disable-next-line no-console
-      log = console.log.bind(console)
-    }
-
     const fontStream = new SVGIcons2SVGFontStream({
       ascent: options.ascent,
       centerHorizontally: options.centerHorizontally,
@@ -30,7 +21,7 @@ const toSvg = (glyphsData: any, options: any) => {
       fontName: options.fontName,
       fontStyle: options.fontStyle,
       fontWeight: options.fontWeight,
-      log,
+      log: () => {},
       metadata: options.metadata,
       normalize: options.normalize,
       round: options.round,
