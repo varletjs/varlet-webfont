@@ -52,13 +52,12 @@ type Webfont = (initialOptions?: InitialOptions) => Promise<Result>
 export const webfont: Webfont = async (initialOptions) => {
   const options = getOptions(initialOptions)
   const foundFiles = await globby(normalizeToArray(options.files))
-  const filteredFiles = foundFiles.filter((foundFile) => path.extname(foundFile) === '.svg')
 
-  if (filteredFiles.length === 0) {
+  if (foundFiles.length === 0) {
     throw new Error('Files glob patterns specified did not match any files')
   }
 
-  let glyphsData = (await getGlyphsData(filteredFiles, options)) as GlyphData[]
+  let glyphsData = (await getGlyphsData(foundFiles, options)) as GlyphData[]
 
   if (isFunction(options.glyphTransformFn)) {
     const transformedGlyphs = glyphsData.map(async (glyphData: GlyphData) => {
