@@ -29,7 +29,7 @@
     "p-limit": "^3.1.0",
     "svg2ttf": "^6.0.2",
     "svgicons2svgfont": "^10.0.3",
-    "xml2js": "^0.4.23"
+    "xml2js": "^0.5.0"
   },
   "devDependencies": {
     "@types/fs-extra": "11.0.4",
