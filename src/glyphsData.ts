@@ -1,7 +1,6 @@
 // @ts-nocheck
 import type { GlyphData, WebfontOptions } from './types'
 import fse from 'fs-extra'
-import fileSorter from 'svgicons2svgfont/src/filesorter.js'
 import getMetadataService from 'svgicons2svgfont/src/metadata.js'
 import xml2js from 'xml2js'
 
@@ -42,17 +41,10 @@ export const getGlyphsData: GlyphsDataGetter = (files, options) => {
         })
     )
   ).then((glyphsData) => {
-    let sortedGlyphsData = glyphsData
-
-    if (options.sort) {
-      const sortCallback = (fileA: GlyphData, fileB: GlyphData) => fileSorter(fileA.srcPath, fileB.srcPath)
-      sortedGlyphsData = glyphsData.sort(sortCallback)
-    }
-
     const { ligatures } = options
 
     return Promise.all(
-      sortedGlyphsData.map(
+      glyphsData.map(
         (glyphData: GlyphData) =>
           new Promise((resolve, reject) => {
             metadataProvider(glyphData.srcPath, (error, metadata) => {

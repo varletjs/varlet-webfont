@@ -32,7 +32,6 @@ export const getOptions: OptionsGetter = (initialOptions) => {
     normalize: false,
     prependUnicode: false,
     round: 10e12,
-    sort: true,
     startUnicode: 0xea01,
     ...initialOptions,
   }
